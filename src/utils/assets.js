@@ -11,4 +11,4 @@ export const images = {
   locationPermision: require(`${folderPath}locationPermision.png`),
 };
 
-export const icon = {};
+export const icons = {};
