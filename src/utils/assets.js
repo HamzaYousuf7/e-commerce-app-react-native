@@ -1,14 +1,19 @@
-const folderPath = `../assets/images/`;
+const imgPath = `../assets/images/`;
+const iconPath = `../assets/icons/`;
 
 export const images = {
-  authBackground: require(`${folderPath}BG.png`),
-  mainLogo: require(`${folderPath}mainLogo.png`),
-  onBoardingBackGround: require(`${folderPath}onBoardingBackGround.png`),
-  onBoarding1: require(`${folderPath}onBoarding1.png`),
-  onBoarding2: require(`${folderPath}onBoarding2.png`),
-  onBoarding3: require(`${folderPath}onBoarding3.png`),
-  selectLanguage: require(`${folderPath}selectLanguage.png`),
-  locationPermision: require(`${folderPath}locationPermision.png`),
+  authBackground: require(`${imgPath}BG.png`),
+  mainLogo: require(`${imgPath}mainLogo.png`),
+  onBoardingBackGround: require(`${imgPath}onBoardingBackGround.png`),
+  onBoarding1: require(`${imgPath}onBoarding1.png`),
+  onBoarding2: require(`${imgPath}onBoarding2.png`),
+  onBoarding3: require(`${imgPath}onBoarding3.png`),
+  selectLanguage: require(`${imgPath}selectLanguage.png`),
+  locationPermision: require(`${imgPath}locationPermision.png`),
 };
 
-export const icons = {};
+export const icons = {
+  account: require(`${iconPath}account.png`),
+  email: require(`${iconPath}email.png`),
+  password: require(`${iconPath}password.png`),
+};

@@ -5,8 +5,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 // local imp
 import Spalsh from '../screens/Spalsh';
 import Welcome from '../screens/Welcome';
-import SingIn from '../screens/SingIn';
-import SingUp from '../screens/SingUp';
+import SingUpIn from '../screens/SingUpIn';
+
 
 //Stack int
 const Stack = createStackNavigator();
@@ -17,7 +17,6 @@ export const AuthStack = () => (
     initialRouteName="Spalsh">
     <Stack.Screen name="Spalsh" component={Spalsh} />
     <Stack.Screen name="Welcome" component={Welcome} />
-    <Stack.Screen name="SingIn" component={SingIn} />
-    <Stack.Screen name="SingUp" component={SingUp} />
+    <Stack.Screen name="SingUpIn" component={SingUpIn} />
   </Stack.Navigator>
 );

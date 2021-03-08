@@ -10,7 +10,7 @@ const index = (props) => {
     <TouchableOpacity
       style={[
         styles.container,
-        {backgroundColor: props.isWhiteBG ? Color.WHITE : Color.BLUE},
+        {backgroundColor: props.isWhiteBG ? Color.WHITE : Color.CYAN},
       ]}
       onPress={props.handlePress}
       activeOpacity={10}>
