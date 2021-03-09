@@ -72,7 +72,7 @@ const index = (props) => {
           <Button
             isWhiteTxt
             title="Done"
-            handlePress={() => props.navigation.navigate('SingUpIn')}
+            handlePress={() => props.navigation.navigate('LocationPermision')}
           />
         </View>
       </SafeAreaView>

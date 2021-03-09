@@ -34,7 +34,7 @@ export default StyleSheet.create({
     // backgroundColor: 'red',
     borderWidth: 0.8,
     borderColor: '#F4F4F4',
-    elevation: 0.8,
+    elevation: 0.85,
   },
   singleLangCont: {
     width: '100%',
