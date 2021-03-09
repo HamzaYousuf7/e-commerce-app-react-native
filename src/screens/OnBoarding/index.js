@@ -66,7 +66,7 @@ const index = (props) => {
         <Button
            isWhiteBG
           title=" Go To Home"
-          handlePress={() => props.navigation.navigate('SingUpIn')}
+          handlePress={() => props.navigation.navigate('Selectlanguage')}
         />
       </View>
     );

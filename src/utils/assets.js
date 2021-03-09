@@ -16,4 +16,5 @@ export const icons = {
   account: require(`${iconPath}account.png`),
   email: require(`${iconPath}email.png`),
   password: require(`${iconPath}password.png`),
+  checkedCheckBox: require(`${iconPath}checkedCheckBox.png`),
 };

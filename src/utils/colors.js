@@ -4,4 +4,5 @@ export const Color = {
   BUTTON_TXT: '#464D53',
   INPUT: '#464D53',
   BLUE: '#4267B2',
+  TXT_PRIMARY: '#464D53',
 };
