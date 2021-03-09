@@ -28,7 +28,7 @@ export default StyleSheet.create({
     fontSize: height * 0.025,
   },
   langCont: {
-    width: '80%',
+    width: '78%',
     height: '30%',
     marginTop: height * 0.025,
     // backgroundColor: 'red',
@@ -43,7 +43,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: width * 0.05,
+    paddingLeft: width * 0.05,
+    paddingRight: width * 0.025,
     borderWidth: 0.8,
     borderColor: '#F4F4F4',
   },
@@ -60,8 +61,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   checkIcon: {
-    width: '65%',
-    height: '65%',
+    width: '50%',
+    height: '50%',
   },
   buttonCont: {
     width: '80%',
