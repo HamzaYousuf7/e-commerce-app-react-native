@@ -22,7 +22,7 @@ export default StyleSheet.create({
     // backgroundColor: 'red',
   },
   tabCont: {
-    width: width * 0.6,
+    width: width * 0.55,
     height: height * 0.05,
     // backgroundColor: 'green',
     flexDirection: 'row',

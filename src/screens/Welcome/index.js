@@ -35,12 +35,16 @@ const index = (props) => {
           <Button
             isWhiteTxt
             title=" LOG IN"
-            handlePress={() => props.navigation.navigate('SingUpIn')}
+            handlePress={() =>
+              props.navigation.navigate('SingUpIn', {isLogin: true})
+            }
           />
           <Button
             isWhiteBG
             title=" SIGN UP"
-            handlePress={() => props.navigation.navigate('SingUpIn')}
+            handlePress={() =>
+              props.navigation.navigate('SingUpIn', {isLogin: false})
+            }
           />
         </View>
       </ImageBackground>

@@ -14,7 +14,7 @@ const index = (props) => {
       </View>
       <TextInput
         style={styles.textInput}
-        placeholder="Enter User Name"
+        placeholder={props.placeHoldertxt}
         placeholderTextColor={Color.WHITE}
       />
     </View>
