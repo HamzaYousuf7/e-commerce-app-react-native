@@ -19,12 +19,13 @@ import {
 // navigation impor
 import {NavigationContainer} from '@react-navigation/native';
 import {AuthStack} from './src/navigation/Auth';
+import {MainStack} from './src/navigation/MainStack';
 
 const App: () => React$Node = () => {
   return (
     <>
       <NavigationContainer>
-        <AuthStack />
+        {false ? <AuthStack /> : <MainStack />}
       </NavigationContainer>
     </>
   );

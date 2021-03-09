@@ -17,7 +17,6 @@ const index = (props) => {
   const [tab, setTab] = useState(2);
 
   useEffect(() => {
-    console.log('navigation props ===>', props.route.params.isLogin);
     const whatTab = props.route.params.isLogin ? 1 : 2;
     setTab(whatTab);
   }, []);
@@ -25,8 +24,8 @@ const index = (props) => {
   const loginJSX = () => {
     return (
       <>
-        <InputText icons={icons.account} placeHoldertxt="Enter User Name"/>
-        <InputText icons={icons.password} placeHoldertxt="Enter Password"/>
+        <InputText icons={icons.account} placeHoldertxt="Enter User Name" />
+        <InputText icons={icons.password} placeHoldertxt="Enter Password" />
         <Button
           isWhiteTxt
           title=" LOG IN"
