@@ -15,7 +15,13 @@ export const images = {
   populartwo: require(`${imgPath}populartwo.png`),
   popularThree: require(`${imgPath}popularThree.png`),
   popularFour: require(`${imgPath}popularFour.png`),
-}; 
+  item1: require(`${imgPath}item1.png`),
+  item2: require(`${imgPath}item2.png`),
+  item3: require(`${imgPath}item3.png`),
+  item4: require(`${imgPath}item4.png`),
+  item5: require(`${imgPath}item5.png`),
+  item6: require(`${imgPath}item6.png`),
+};
 
 export const icons = {
   account: require(`${iconPath}account.png`),
@@ -33,4 +39,7 @@ export const icons = {
   collectionH: require(`${iconPath}collectionH.png`),
   menu: require(`${iconPath}menu.png`),
   cart: require(`${iconPath}cart.png`),
+  backArrow: require(`${iconPath}backArrow.png`),
+  PlusIcon: require(`${iconPath}PlusIcon.png`),
+  MinusIcon: require(`${iconPath}MinusIcon.png`),
 };
