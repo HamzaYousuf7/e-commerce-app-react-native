@@ -31,4 +31,6 @@ export const icons = {
   shoesH: require(`${iconPath}shoesH.png`),
   fashionsH: require(`${iconPath}fashionsH.png`),
   collectionH: require(`${iconPath}collectionH.png`),
+  menu: require(`${iconPath}menu.png`),
+  cart: require(`${iconPath}cart.png`),
 };

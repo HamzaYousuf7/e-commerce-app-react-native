@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet, StatusBar, Dimensions} from 'react-native';
 
 // local
 import {Color} from '../../utils/colors';
@@ -21,6 +21,65 @@ export default StyleSheet.create({
   sliderImgBg: {
     width: '100%',
     height: '100%',
+  },
+  searchHeaderCont: {
+    width: '95%',
+    height: '20%',
+    flexDirection: 'row',
+    alignContent: 'center',
+    alignSelf: 'center',
+    marginTop: StatusBar.currentHeight,
+    paddingHorizontal: width * 0.025,
+    backgroundColor: Color.WHITE,
+  },
+  drawerIconCont: {
+    width: '13%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: 'pink',
+  },
+  searchBarImgs: {
+    width: '65%',
+    height: '65%',
+  },
+  searchBarCont: {
+    width: '71%',
+    height: '100%',
+    // backgroundColor: 'yellow',
+    justifyContent: 'center',
+    paddingLeft: width * 0.015,
+  },
+
+  searchTxt: {
+    fontFamily: 'Roboto-Regular',
+    color: '#989FA7',
+    fontSize: height * 0.02,
+  },
+  cartIconCont: {
+    width: '15%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderLeftWidth: width * 0.002,
+    borderLeftColor: Color.TXT_PRIMARY,
+    // backgroundColor: 'orange',
+  },
+  noItemCont: {
+    position: 'absolute',
+    top: height * 0.014,
+    right: width * 0.03,
+    width: width * 0.035,
+    height: width * 0.035,
+    backgroundColor: Color.CYAN,
+    zIndex: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noItemTxt: {
+    color: Color.WHITE,
+    fontFamily: 'Roboto-Regular',
+    fontSize: width * 0.03,
   },
   activeDots: {
     width: width * 0.025,

@@ -71,9 +71,31 @@ const Index = (props) => {
 
   const _renderItem = ({item}) => {
     return (
-      <ImageBackground
-        source={item.image}
-        style={styles.sliderImgBg}></ImageBackground>
+      <ImageBackground source={item.image} style={styles.sliderImgBg}>
+        <View style={styles.searchHeaderCont}>
+          <TouchableOpacity style={styles.drawerIconCont} activeOpacity={10}>
+            <Image
+              source={icons.menu}
+              resizeMode="contain"
+              style={styles.searchBarImgs}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.searchBarCont} activeOpacity={10}>
+            <Text style={styles.searchTxt}>Search...</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.cartIconCont} activeOpacity={10}>
+            <View style={styles.noItemCont}>
+              <Text style={styles.noItemTxt}>3</Text>
+            </View>
+
+            <Image
+              source={icons.cart}
+              resizeMode="contain"
+              style={styles.searchBarImgs}
+            />
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     );
   };
 
