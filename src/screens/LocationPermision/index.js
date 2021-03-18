@@ -36,7 +36,6 @@ const index = (props) => {
             />
 
             <Button
-              isWhiteBG
               title="CANCEL"
               handlePress={() => alert('fired')}
             />

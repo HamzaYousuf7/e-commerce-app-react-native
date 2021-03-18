@@ -18,14 +18,35 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   cartItemCont: {
-    width: '100%',
+    width: '95%',
     height: '60%',
+    alignSelf: 'center',
     marginTop: height * 0.02,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
+    // marginBottom: height * 0.015,
   },
   checkoutCont: {
-    width: '100%',
-    height: '30%',
-    backgroundColor: 'pink',
+    width: '95%',
+    height: '28%',
+    alignSelf: 'center',
+    alignItems: 'center',
+    paddingTop: height * 0.025,
+    borderRadius: width * 0.1,
+    
+    backgroundColor: Color.WHITE,
+  },
+  txt1: {
+    color: '#464D53',
+    fontFamily: 'Roboto-Regular',
+    fontSize: height * 0.02,
+  },
+  txt2Price: {
+    color: '#464D53',
+    fontFamily: 'Roboto-Medium',
+    fontSize: height * 0.03,
+    fontWeight: 'bold',
+  },
+  buttonCont: {
+    width: '80%',
   },
 });

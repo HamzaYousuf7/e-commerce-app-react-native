@@ -10,23 +10,34 @@ const index = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgCont}>
-        <Image source={images.item1} resizeMode="contain" style={styles.img} />
+        <Image
+          source={props.item.img}
+          resizeMode="contain"
+          style={styles.img}
+        />
       </View>
       <View style={styles.detailCont}>
-        <Text style={styles.titleTxt}>Product name</Text>
-        <Text style={styles.sizeTxt}>Size : XL </Text>
-        <Text style={styles.priceTxt}>$900.00</Text>
+        <Text style={styles.titleTxt}>{props.item.title}</Text>
+        <Text style={styles.sizeTxt}>Size : {props.item.size}</Text>
+        <Text style={styles.priceTxt}>${props.item.price}</Text>
       </View>
       <View style={styles.quantityCont}>
-        <TouchableOpacity style={styles.plusIconCont} activeOpacity={10}>
+        <TouchableOpacity
+          style={styles.plusIconCont}
+          activeOpacity={10}
+          onPress={props.handlePlusPress}>
           <Image
             source={icons.PlusIcon}
             resizeMode="contain"
             style={styles.plusMinIcon}
           />
         </TouchableOpacity>
-        <Text style={styles.quantityTxt}>2</Text>
-        <TouchableOpacity style={styles.plusIconCont} activeOpacity={10}>
+        <Text style={styles.quantityTxt}>{props.item.quantity}</Text>
+
+        <TouchableOpacity
+          style={styles.plusIconCont}
+          activeOpacity={10}
+          onPress={props.handleMinsPress}>
           <Image
             source={icons.MinusIcon}
             resizeMode="contain"
