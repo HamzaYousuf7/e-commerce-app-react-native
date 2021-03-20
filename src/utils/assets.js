@@ -42,4 +42,11 @@ export const icons = {
   backArrow: require(`${iconPath}backArrow.png`),
   PlusIcon: require(`${iconPath}PlusIcon.png`),
   MinusIcon: require(`${iconPath}MinusIcon.png`),
+  home: require(`${iconPath}home.png`),
+  categories: require(`${iconPath}categories.png`),
+  orders: require(`${iconPath}orders.png`),
+  heart: require(`${iconPath}heart.png`),
+  settings: require(`${iconPath}settings.png`),
+  notification: require(`${iconPath}notification.png`),
+  FAQ: require(`${iconPath}FAQ.png`),
 };

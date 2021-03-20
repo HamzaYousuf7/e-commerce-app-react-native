@@ -15,7 +15,7 @@ export default StyleSheet.create({
   sliderCont: {
     width: width,
     height: height * 0.4,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
 
   sliderImgBg: {

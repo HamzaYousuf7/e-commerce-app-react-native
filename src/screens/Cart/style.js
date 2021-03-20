@@ -19,7 +19,7 @@ export default StyleSheet.create({
   },
   cartItemCont: {
     width: '95%',
-    height: '60%',
+    height: '63%',
     alignSelf: 'center',
     marginTop: height * 0.02,
     // backgroundColor: 'red',
