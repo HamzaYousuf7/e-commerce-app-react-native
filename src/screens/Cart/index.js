@@ -69,9 +69,11 @@ const Index = (props) => {
   ]);
   return (
     <>
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <SafeAreaView style={styles.container}>
-        <Header title="Cart (3)" handleLeftIconPress={() => alert('Fired')} />
+        <Header
+          title="Cart (3)"
+          handleLeftIconPress={() => props.navigation.goBack()}
+        />
 
         <View style={styles.secondCont}>
           <View style={styles.cartItemCont}>

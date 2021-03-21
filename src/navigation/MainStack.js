@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import {View, Text, Dimensions, Image, TouchableOpacity} from 'react-native';
 // navigation imp
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -14,7 +14,7 @@ import LocationPermision from '../screens/LocationPermision';
 import Home from '../screens/Home';
 import Cart from '../screens/Cart';
 
-import {icons} from '../utils/assets';
+import {icons, images} from '../utils/assets';
 
 // Dimenstion API
 const {width, height} = Dimensions.get('window');
@@ -78,8 +78,96 @@ const drawerArr = [
 const CustomDrawer = (props) => {
   return (
     <DrawerContentScrollView {...props}>
-      <View>
-        <Text>main heading or header</Text>
+      <View
+        style={{
+          width: '100%',
+          height: height * 0.25,
+          // backgroundColor: 'red',
+          alignItems: 'center',
+        }}>
+        <View
+          style={{
+            width: width * 0.25,
+            height: width * 0.25,
+            borderRadius: width / 2,
+            overflow: 'hidden',
+            marginVertical: height * 0.02,
+            // backgroundColor: 'green',
+            borderWidth: width * 0.001,
+            borderColor: '#00ADEF',
+          }}>
+          <Image
+            source={images.userProfile}
+            resizeMode="contain"
+            style={{width: '100%', height: '100%'}}
+          />
+        </View>
+
+        <Text
+          style={{
+            fontFamily: 'Roboto-Medium',
+            fontSize: height * 0.025,
+            color: '#212121',
+          }}>
+          Sunny Vo
+        </Text>
+
+        <Text
+          style={{
+            fontFamily: 'Roboto-Regular',
+            // fontSize: height * 0.025,
+            color: '#464D53',
+          }}>
+          vctung@outlook.com
+        </Text>
+      </View>
+
+      {/** tab start */}
+      <View
+        style={{
+          width: '100%',
+          height: height * 0.7,
+          alignItems: 'center',
+          // backgroundColor: 'pink',
+        }}>
+        {drawerArr.map((item) => (
+          <TouchableOpacity
+            style={{
+              width: '90%',
+              height: '8%',
+              // backgroundColor: 'orange',
+              marginVertical: height * 0.015,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
+            activeOpacity={10}
+            onPress={() => props.navigation.navigate(item.routeName)}>
+            <View
+              style={{
+                width: '20%',
+                height: '100%',
+                // backgroundColor: 'gold',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Image
+                source={item.icon}
+                resizeMode="contain"
+                style={{width: '80%', height: '80%'}}
+              />
+            </View>
+
+            <Text
+              style={{
+                fontFamily: 'Roboto-Regular',
+                fontSize: height * 0.0185,
+                color: '#464D53',
+                marginLeft: width * 0.015,
+              }}>
+              {item.name}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </DrawerContentScrollView>
   );

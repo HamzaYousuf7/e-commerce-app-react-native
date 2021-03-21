@@ -73,7 +73,10 @@ const Index = (props) => {
     return (
       <ImageBackground source={item.image} style={styles.sliderImgBg}>
         <View style={styles.searchHeaderCont}>
-          <TouchableOpacity style={styles.drawerIconCont} activeOpacity={10}>
+          <TouchableOpacity
+            style={styles.drawerIconCont}
+            activeOpacity={10}
+            onPress={() => props.navigation.openDrawer()}>
             <Image
               source={icons.menu}
               resizeMode="contain"
@@ -83,7 +86,10 @@ const Index = (props) => {
           <TouchableOpacity style={styles.searchBarCont} activeOpacity={10}>
             <Text style={styles.searchTxt}>Search...</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.cartIconCont} activeOpacity={10}>
+          <TouchableOpacity
+            style={styles.cartIconCont}
+            activeOpacity={10}
+            onPress={() => props.navigation.navigate('Cart')}>
             <View style={styles.noItemCont}>
               <Text style={styles.noItemTxt}>3</Text>
             </View>
