@@ -128,6 +128,7 @@ const CustomDrawer = (props) => {
           width: '100%',
           height: height * 0.7,
           alignItems: 'center',
+          marginTop: height * 0.015,
           // backgroundColor: 'pink',
         }}>
         {drawerArr.map((item) => (
@@ -136,7 +137,7 @@ const CustomDrawer = (props) => {
               width: '90%',
               height: '8%',
               // backgroundColor: 'orange',
-              marginVertical: height * 0.015,
+              marginBottom: height * 0.025,
               flexDirection: 'row',
               alignItems: 'center',
             }}
