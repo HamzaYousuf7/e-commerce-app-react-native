@@ -107,7 +107,12 @@ const Index = (props) => {
 
   const CategoriesJSX = (singleCate) => {
     return (
-      <TouchableOpacity style={styles.singleCategoryCont} key={singleCate.key}>
+      <TouchableOpacity style={styles.singleCategoryCont} key={singleCate.key} 
+      onPress={(singleCate)=> {
+        let check= singleCate.title == 'Shoes'? 'true': 'false';
+         check ? props.navigation.navigate('CategoryDetail'): null
+      }
+    }>
         <View style={styles.cateImgCont}>
           <Image
             source={singleCate.icon}

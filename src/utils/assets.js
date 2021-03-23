@@ -50,4 +50,5 @@ export const icons = {
   settings: require(`${iconPath}settings.png`),
   notification: require(`${iconPath}notification.png`),
   FAQ: require(`${iconPath}FAQ.png`),
+  star: require(`${iconPath}emptyStar.png`),
 };
