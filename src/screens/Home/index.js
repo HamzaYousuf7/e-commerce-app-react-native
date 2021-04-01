@@ -110,7 +110,7 @@ const Index = (props) => {
       <TouchableOpacity style={styles.singleCategoryCont} key={singleCate.key} 
       onPress={(singleCate)=> {
         let check= singleCate.title == 'Shoes'? 'true': 'false';
-         check ? props.navigation.navigate('CategoryDetailList'): null
+         check ? props.navigation.navigate('MyOrders'): null
       }
     }>
         <View style={styles.cateImgCont}>

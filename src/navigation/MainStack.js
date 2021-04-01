@@ -15,6 +15,7 @@ import Home from '../screens/Home';
 import Cart from '../screens/Cart';
 import CategoryDetail from '../screens/CategoryDetail';
 import CategoryDetailList from '../screens/CategoryDetailList';
+import MyOrders from '../screens/MyOrders';
 
 import {icons, images} from '../utils/assets';
 
@@ -191,6 +192,7 @@ export const MainStack = () => (
     <Stack.Screen name="LocationPermision" component={LocationPermision} />
     <Stack.Screen name="Home" component={DrawerScreen} />
     <Stack.Screen name="Cart" component={Cart} />
+    <Stack.Screen name="MyOrders" component={MyOrders} />
     <Stack.Screen name="CategoryDetail" component={CategoryDetail} />
     <Stack.Screen name="CategoryDetailList" component={CategoryDetailList} />
   </Stack.Navigator>
