@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // local imp
+const DBPool = require('./DB/DBPool');
+
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const notFoundRoutes = require('./routes/notFoundRoutes');
@@ -11,7 +13,6 @@ const app = express();
 
 // parsing the incoming req
 app.use(bodyParser.json());
-
 
 // handling CROS error
 app.use((req, res, next) => {
@@ -33,15 +34,15 @@ app.use('/api/user', userRoutes);
 app.use('/api/product', productRoutes);
 app.use(notFoundRoutes);
 
-
-
 // error handling
 app.use((error, req, res, next) => {
   res.status(500).json({message: 'something went wrong'});
 });
 
-
 // listening
 app.listen(process.env.PORT, () => {
+  DBPool.query('SELECT * FROM customer', (error, results) => {
+    console.log('====>', results);
+  });
   console.log(`App is running on port ${process.env.PORT}`);
 });
