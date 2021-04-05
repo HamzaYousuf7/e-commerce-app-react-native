@@ -34,3 +34,33 @@ exports.login = (req, res, next) => {
     });
   });
 };
+
+exports.register = (req, res, next) => {
+  // incoming data
+  const {userName, email, password, profileImgPath} = req.body;
+
+  // TODO validation logic
+
+  // console.log('data ====>', userName, email, password, profileImgPath);
+
+  const query = `CALL register_customer('${userName}','${email}','${password}','${profileImgPath}')`;
+  DBPool.query(query, (error, result) => {
+    // if any error occur
+    if (error) {
+      console.log('[SQL ERROR] ====>', error.sqlMessage);
+      return res.status(500).json({
+        message: 'Something went wrong, try again ',
+      });
+    }
+
+    console.log('=====>', result.affectedRows);
+
+    // successfully register
+    if (result.affectedRows == 1) {
+      return res.status(201).json({
+        message: 'Register successfully ',
+        user: null,
+      });
+    }
+  });
+};
