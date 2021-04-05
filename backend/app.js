@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // local imp
-const DBPool = require('./DB/DBPool');
 
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
@@ -41,8 +40,5 @@ app.use((error, req, res, next) => {
 
 // listening
 app.listen(process.env.PORT, () => {
-  DBPool.query('SELECT * FROM customer', (error, results) => {
-    console.log('====>', results);
-  });
   console.log(`App is running on port ${process.env.PORT}`);
 });
