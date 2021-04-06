@@ -1,4 +1,5 @@
 const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 // local imp
 const DBPool = require('../DB/DBPool');
@@ -7,8 +8,9 @@ const validationFunc = require('../util/validationFunc');
 // login
 exports.login = async (req, res, next) => {
   // var
+  let isPassValid, token;
+
   const {email, password} = req.body;
-  let isPassValid;
 
   // Calling DB procedure
   const query = `CALL customer_login('${email}')`;
@@ -19,6 +21,7 @@ exports.login = async (req, res, next) => {
       return res.status(500).json({
         message: 'Something went wrong, try again ',
         user: null,
+        token: null,
       });
     }
 
@@ -27,6 +30,7 @@ exports.login = async (req, res, next) => {
       return res.status(404).json({
         message: `User does not exists`,
         user: null,
+        token: null,
       });
     }
 
@@ -38,14 +42,31 @@ exports.login = async (req, res, next) => {
       return res.status(500).json({
         message: 'Something went wrong, try again ',
         user: null,
+        token: null,
       });
-      
     }
 
-    if(!isPassValid)
-    {
+    if (!isPassValid) {
       return res.status(422).json({
         message: 'Password is incorrect',
+        user: null,
+        token: null,
+      });
+    }
+
+    // now creating token
+    try {
+      token = jwt.sign(
+        {
+          customerID: result[0][0].customerID,
+          email: result[0][0].email,
+        },
+        'SUPERSECRET_DONT_SHARE_LOL_XD',
+        {expiresIn: '1h'},
+      );
+    } catch (error) {
+      return res.status(500).json({
+        message: 'Something went wrong, try again ',
         user: null,
       });
     }
@@ -54,6 +75,7 @@ exports.login = async (req, res, next) => {
     res.status(200).json({
       message: 'successfully login',
       user: result[0][0],
+      token: token,
     });
   });
 };
