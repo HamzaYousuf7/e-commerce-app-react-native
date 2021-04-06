@@ -1,5 +1,8 @@
 
---- LOGIN procedure
+-- SELECT THE DB FIRST;
+USE e_commerce_app;
+ 
+-- LOGIN procedure
 DROP PROCEDURE IF EXISTS  customer_login;
 
 DELIMITER $$
@@ -19,7 +22,7 @@ DELIMITER ;
 
 
 
--------- Register User Procedure
+-- Register User Procedure
 DROP PROCEDURE IF EXISTS register_customer;
 
 DELIMITER $$

@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Customer(
 	customerID INT PRIMARY KEY AUTO_INCREMENT,
     userName VARCHAR(45) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(45) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     profileImgPath varchar(45)
     
 );

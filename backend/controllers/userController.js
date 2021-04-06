@@ -1,13 +1,13 @@
+const bcryptjs = require('bcryptjs');
+
 // local imp
 const DBPool = require('../DB/DBPool');
 const validationFunc = require('../util/validationFunc');
 
 // login
-exports.login = (req, res, next) => {
+exports.login = async (req, res, next) => {
+  // var
   const {email, password} = req.body;
-
-  // TODO some validation logic
-  // console.log('Email and password ===>', email, password);
 
   // Calling DB procedure
   const query = `CALL customer_login('${email}','${password}')`;
@@ -17,6 +17,7 @@ exports.login = (req, res, next) => {
       console.log('[SQL ERROR] ====>', error.sqlMessage);
       return res.status(500).json({
         message: 'Something went wrong, try again ',
+        user: null,
       });
     }
 
@@ -36,8 +37,10 @@ exports.login = (req, res, next) => {
   });
 };
 
-exports.register = (req, res, next) => {
+exports.register = async (req, res, next) => {
+  
   // incoming data
+  let hashPassword;
   const {userName, email, password, profileImgPath} = req.body;
 
   // validation
@@ -57,7 +60,17 @@ exports.register = (req, res, next) => {
     });
   }
 
-  const query = `CALL register_customer('${userName}','${email}','${password}','${profileImgPath}')`;
+  // hasing the password
+  try {
+    hashPassword = await bcryptjs.hash(password, 10);
+  } catch (error) {
+    return res.status(500).json({
+      message: 'something went wrong, Please try again',
+      user: null,
+    });
+  }
+
+  const query = `CALL register_customer('${userName}','${email}','${hashPassword}','${profileImgPath}')`;
   DBPool.query(query, (error, result) => {
     // if any error occur
     if (error) {
