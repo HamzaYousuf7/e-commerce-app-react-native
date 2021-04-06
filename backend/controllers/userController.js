@@ -1,5 +1,6 @@
 // local imp
 const DBPool = require('../DB/DBPool');
+const validationFunc = require('../util/validationFunc');
 
 // login
 exports.login = (req, res, next) => {
@@ -39,9 +40,22 @@ exports.register = (req, res, next) => {
   // incoming data
   const {userName, email, password, profileImgPath} = req.body;
 
-  // TODO validation logic
-
-  // console.log('data ====>', userName, email, password, profileImgPath);
+  // validation
+  if (
+    !validationFunc.isUserNameValid(userName) ||
+    !validationFunc.isEmailValid(email) ||
+    !validationFunc.isPasswordValid(password)
+  ) {
+    console.log(
+      validationFunc.isUserNameValid(userName),
+      validationFunc.isEmailValid(email),
+      validationFunc.isPasswordValid(password),
+    );
+    return res.status(422).json({
+      message: 'incorrect fields check your data and try again',
+      isUserRegister: false,
+    });
+  }
 
   const query = `CALL register_customer('${userName}','${email}','${password}','${profileImgPath}')`;
   DBPool.query(query, (error, result) => {
@@ -50,16 +64,15 @@ exports.register = (req, res, next) => {
       console.log('[SQL ERROR] ====>', error.sqlMessage);
       return res.status(500).json({
         message: 'Something went wrong, try again ',
+        isUserRegister: false,
       });
     }
-
-    console.log('=====>', result.affectedRows);
 
     // successfully register
     if (result.affectedRows == 1) {
       return res.status(201).json({
         message: 'Register successfully ',
-        user: null,
+        isUserRegister: true,
       });
     }
   });
