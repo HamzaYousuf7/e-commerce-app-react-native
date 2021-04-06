@@ -8,10 +8,11 @@ const validationFunc = require('../util/validationFunc');
 exports.login = async (req, res, next) => {
   // var
   const {email, password} = req.body;
+  let isPassValid;
 
   // Calling DB procedure
-  const query = `CALL customer_login('${email}','${password}')`;
-  DBPool.query(query, (error, result) => {
+  const query = `CALL customer_login('${email}')`;
+  DBPool.query(query, async (error, result) => {
     // if any error occur
     if (error) {
       console.log('[SQL ERROR] ====>', error.sqlMessage);
@@ -24,7 +25,27 @@ exports.login = async (req, res, next) => {
     // if email or password is incorrect
     if (result[0].length == 0) {
       return res.status(404).json({
-        message: 'Either credential is wrong or user does not exists ',
+        message: `User does not exists`,
+        user: null,
+      });
+    }
+
+    // Now comparing the password
+
+    try {
+      isPassValid = await bcryptjs.compare(password, result[0][0].password);
+    } catch (error) {
+      return res.status(500).json({
+        message: 'Something went wrong, try again ',
+        user: null,
+      });
+      
+    }
+
+    if(!isPassValid)
+    {
+      return res.status(422).json({
+        message: 'Password is incorrect',
         user: null,
       });
     }
@@ -38,7 +59,6 @@ exports.login = async (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
-  
   // incoming data
   let hashPassword;
   const {userName, email, password, profileImgPath} = req.body;
@@ -49,11 +69,12 @@ exports.register = async (req, res, next) => {
     !validationFunc.isEmailValid(email) ||
     !validationFunc.isPasswordValid(password)
   ) {
-    console.log(
-      validationFunc.isUserNameValid(userName),
-      validationFunc.isEmailValid(email),
-      validationFunc.isPasswordValid(password),
-    );
+    // console.log(
+    //   validationFunc.isUserNameValid(userName),
+    //   validationFunc.isEmailValid(email),
+    //   validationFunc.isPasswordValid(password),
+    // );
+
     return res.status(422).json({
       message: 'incorrect fields check your data and try again',
       isUserRegister: false,
@@ -75,10 +96,19 @@ exports.register = async (req, res, next) => {
     // if any error occur
     if (error) {
       console.log('[SQL ERROR] ====>', error.sqlMessage);
-      return res.status(500).json({
-        message: 'Something went wrong, try again ',
-        isUserRegister: false,
-      });
+
+      // checking if the error is dublicate email
+      if (error.errno == 1062) {
+        return res.status(500).json({
+          message: 'Email is already taken ',
+          isUserRegister: false,
+        });
+      } else {
+        return res.status(500).json({
+          message: 'Something went wrong, try again ',
+          isUserRegister: false,
+        });
+      }
     }
 
     // successfully register
