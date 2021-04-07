@@ -1,4 +1,3 @@
-
 -- SELECT THE DB
 USE e_commerce_app;
 
@@ -17,7 +16,24 @@ DELIMITER ;
 
 -- example call CALL get_all_products();
 
-	
+-- GET SINGLE PRODUCT BY ID
+DROP PROCEDURE IF EXISTS get_single_product;
+-- CODE
+DELIMITER $$
+CREATE PROCEDURE get_single_product 
+(
+	productID INT
+)
+BEGIN
+	SELECT * 
+		FROM product p 
+        WHERE  p.productID = productID;
+END $$
+DELIMITER ;
+
+-- example call  CALL get_single_product(21);
+
+-- insertProduct start	
 DROP PROCEDURE IF EXISTS insertProduct;
 
 -- insert procedure
