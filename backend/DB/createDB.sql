@@ -62,6 +62,12 @@ CREATE TABLE IF NOT EXISTS Order_Items(
     ON DELETE CASCADE
 );
 
+-- inserting values in order status table
+INSERT INTO order_status(name)
+	VALUES	("Processed"),
+			("Shipped"),
+			("Delivered");
+
 
 
 
