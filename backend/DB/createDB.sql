@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS Orders(
 -- Order Item Table
 CREATE TABLE IF NOT EXISTS Order_Items(
 	orderID INT NOT NULL,
-    quantity INT NOT NULL,
     productID INT NOT NULL,
+    quantity INT NOT NULL,
     FOREIGN KEY fk_item_product (productID)
     REFERENCES Product(productID)
     ON UPDATE CASCADE
@@ -62,6 +62,22 @@ CREATE TABLE IF NOT EXISTS Order_Items(
     ON DELETE CASCADE
 );
 
+-- inserting values in order status table
+INSERT INTO order_status(name)
+	VALUES	("Processed"),
+			("Shipped"),
+			("Delivered");
 
 
+-- insert products in product tables
+INSERT INTO product (name,price,img,rating,userRated,details)
+	VALUES	('Car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+			('Bike',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+            ('car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+            ('car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+            ('car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+            ('car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+            ('car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+            ('car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils'),
+            ('car',53.5,'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',4.5,50,'some deatils');
 

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const notFoundRoutes = require('./routes/notFoundRoutes');
 
 // ap start
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 //routes handle
 app.use('/api/user', userRoutes);
 app.use('/api/product', productRoutes);
+app.use('/api/order', orderRoutes);
 app.use(notFoundRoutes);
 
 // error handling
