@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS Orders(
 -- Order Item Table
 CREATE TABLE IF NOT EXISTS Order_Items(
 	orderID INT NOT NULL,
-    quantity INT NOT NULL,
     productID INT NOT NULL,
+    quantity INT NOT NULL,
     FOREIGN KEY fk_item_product (productID)
     REFERENCES Product(productID)
     ON UPDATE CASCADE

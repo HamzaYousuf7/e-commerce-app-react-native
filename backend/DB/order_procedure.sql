@@ -12,7 +12,7 @@ CREATE PROCEDURE insert_order
 BEGIN
 	INSERT INTO orders(customerID,orderStatus,orderDate)
 	VALUES (customerID,1,NOW());
-    SELECT last_insert_id();
+       SELECT last_insert_id() AS orderID;
 END $$
 DELIMITER ;
 
