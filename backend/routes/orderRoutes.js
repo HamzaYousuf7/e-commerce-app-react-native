@@ -7,5 +7,6 @@ const orderController = require('../controllers/orderController');
 const router = express.Router();
 
 router.post('/placedOrder', orderController.addOrder);
-router.post('/getOrders',orderController.getCustomerOrders);
+router.post('/getOrders', orderController.getCustomerOrders);
+router.post('/getOrderItems', orderController.getOrderItems);
 module.exports = router;

@@ -67,3 +67,27 @@ exports.getCustomerOrders = async (req, res, next) => {
     });
   });
 };
+
+exports.getOrderItems = (req, res, next) => {
+  // extracting data from body
+  const {orderID} = req.body;
+
+  // query
+  const query = `CALL get_order_items('${orderID}')`;
+  DBPool.query(query, (error, result) => {
+    // if any error occur
+    if (error) {
+      console.log('[SQL ERROR] ====>', error.sqlMessage);
+      return res.status(500).json({
+        message: 'Something went wrong, try again ',
+        order: null,
+      });
+    }
+
+    // console.log('[DEBUG]====>', result[0][0] == null ? 'yes' : 'no');
+    res.status(200).json({
+      message: 'Successfully fetch  the order items ',
+      order: result[0][0] == null ? null : result[0][0],
+    });
+  });
+};
