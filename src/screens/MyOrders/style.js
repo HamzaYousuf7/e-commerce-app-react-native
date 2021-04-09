@@ -51,8 +51,7 @@ export default StyleSheet.create({
     fontColor:{
         color:'#00ADEF',
         fontWeight: 'bold',
-        fontSize: 18,
-        
+        fontSize: 18,   
     },
     alignCenter:{
         flex: 1,

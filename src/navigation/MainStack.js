@@ -16,6 +16,7 @@ import Cart from '../screens/Cart';
 import CategoryDetail from '../screens/CategoryDetail';
 import CategoryDetailList from '../screens/CategoryDetailList';
 import MyOrders from '../screens/MyOrders';
+import OrderDetail from '../screens/OrderDetail';
 
 import {icons, images} from '../utils/assets';
 
@@ -195,5 +196,6 @@ export const MainStack = () => (
     <Stack.Screen name="MyOrders" component={MyOrders} />
     <Stack.Screen name="CategoryDetail" component={CategoryDetail} />
     <Stack.Screen name="CategoryDetailList" component={CategoryDetailList} />
+    <Stack.Screen name="OrderDetail" component={OrderDetail} />
   </Stack.Navigator>
 );

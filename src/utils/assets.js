@@ -21,6 +21,7 @@ export const images = {
   item4: require(`${imgPath}item4.png`),
   item5: require(`${imgPath}item5.png`),
   item6: require(`${imgPath}item6.png`),
+  LogoOnly: require(`${imgPath}LogoOnly.png`),
   userProfile: require(`${imgPath}userProfile.png`),
 };
 
