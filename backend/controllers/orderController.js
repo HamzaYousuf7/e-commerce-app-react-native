@@ -87,7 +87,7 @@ exports.getOrderItems = (req, res, next) => {
     // console.log('[DEBUG]====>', result[0][0] == null ? 'yes' : 'no');
     res.status(200).json({
       message: 'Successfully fetch  the order items ',
-      order: result[0][0] == null ? null : result[0][0],
+      order: result[0] == null ? null : result[0],
     });
   });
 };

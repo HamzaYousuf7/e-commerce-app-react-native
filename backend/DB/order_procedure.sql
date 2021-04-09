@@ -62,11 +62,17 @@ CREATE PROCEDURE get_order_items
 	orderID INT
 )
 BEGIN
-	SELECT *
-		FROM order_items oi
-        WHERE oi.orderID = orderID;
+	SELECT productID, name, price, orderID, quantity, DATE_FORMAT(orderDate,'%M %D, %Y %h :%i  %p') AS orderDate
+		FROM orders o
+        RIGHT JOIN order_items oi
+        USING (orderID)
+        RIGHT JOIN product
+        using (productID)
+        WHERE o.orderID = orderID;
+        
+		
 END $$
 DELIMITER ;
 
 
--- example call CALL get_order_items(2)
+-- example call  CALL get_order_items(4)
