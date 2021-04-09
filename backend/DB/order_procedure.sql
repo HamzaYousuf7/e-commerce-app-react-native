@@ -45,7 +45,7 @@ CREATE PROCEDURE get_customer_orders
 	customerID INT
 )
 BEGIN
-	SELECT *
+	SELECT orderID,customerID,orderStatus,DATE_FORMAT(orderDate,'%M %D, %Y ') AS orderDate
 		FROM orders
         WHERE orders.customerID = customerID;
 END $$

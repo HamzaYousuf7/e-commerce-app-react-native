@@ -46,7 +46,24 @@ exports.addOrder = async (req, res, next) => {
 };
 
 exports.getCustomerOrders = async (req, res, next) => {
-  res.status(200).json({
-    message: 'ok',
+  // extracting data from body
+  const {customerID} = req.body;
+  const query = `CALL get_customer_orders('${customerID}')`;
+
+  DBPool.query(query, async (error, result) => {
+    // if any error occur
+    if (error) {
+      console.log('[SQL ERROR] ====>', error.sqlMessage);
+      return res.status(500).json({
+        message: 'Something went wrong, try again ',
+        orders: [],
+      });
+    }
+
+    // console.log('===>', result);
+    res.status(500).json({
+      message: 'Successfully fetch all the orders',
+      orders: result[0],
+    });
   });
 };
