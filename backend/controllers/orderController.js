@@ -44,3 +44,9 @@ exports.addOrder = async (req, res, next) => {
     });
   });
 };
+
+exports.getCustomerOrders = async (req, res, next) => {
+  res.status(200).json({
+    message: 'ok',
+  });
+};

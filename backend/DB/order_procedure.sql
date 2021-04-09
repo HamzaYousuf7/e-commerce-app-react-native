@@ -35,3 +35,20 @@ END $$
 DELIMITER ;
 
 -- example call CALL insert_order_items(13,5,2);
+
+-- get customer order
+DROP PROCEDURE IF EXISTS get_customer_orders;
+
+DELIMITER $$
+CREATE PROCEDURE get_customer_orders
+(
+	customerID INT
+)
+BEGIN
+	SELECT *
+		FROM orders
+        WHERE orders.customerID = customerID;
+END $$
+DELIMITER ;
+
+-- example call  CALL get_customer_orders(3)
