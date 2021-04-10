@@ -13,6 +13,7 @@ import {
 // third party
 import AppIntroSlider from 'react-native-app-intro-slider';
 
+
 //local import
 import {images, icons} from '../../utils/assets';
 import styles from './style';
@@ -69,6 +70,8 @@ const Index = (props) => {
     {id: 2, img: images.popularFour, title: 'iPhone', txt: '2,000 Products '},
   ]);
 
+  
+
   const _renderItem = ({item}) => {
     return (
       <ImageBackground source={item.image} style={styles.sliderImgBg}>
@@ -107,12 +110,13 @@ const Index = (props) => {
 
   const CategoriesJSX = (singleCate) => {
     return (
-      <TouchableOpacity style={styles.singleCategoryCont} key={singleCate.key} 
-      onPress={(singleCate)=> {
-        let check= singleCate.title == 'Shoes'? 'true': 'false';
-         check ? props.navigation.navigate('OrderDetail'): null
-      }
-    }>
+      <TouchableOpacity
+        style={styles.singleCategoryCont}
+        key={singleCate.key}
+        onPress={(singleCate) => {
+          let check = singleCate.title == 'Shoes' ? 'true' : 'false';
+          check ? props.navigation.navigate('OrderDetail') : null;
+        }}>
         <View style={styles.cateImgCont}>
           <Image
             source={singleCate.icon}

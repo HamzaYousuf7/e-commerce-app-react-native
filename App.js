@@ -21,12 +21,29 @@ import {NavigationContainer} from '@react-navigation/native';
 import {AuthStack} from './src/navigation/Auth';
 import {MainStack} from './src/navigation/MainStack';
 
+// redux
+import {createStore, combineReducers} from 'redux';
+import {Provider} from 'react-redux';
+
+// local redux imp
+import userReducer from './src/store/reducer/userReducer';
+
+// root reducer
+const rootReducer = combineReducers({
+  userReducer: userReducer,
+});
+
+// main store
+const store = createStore(rootReducer);
+
 const App: () => React$Node = () => {
   return (
     <>
-      <NavigationContainer>
-        {false ? <AuthStack /> : <MainStack />}
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          {false ? <AuthStack /> : <MainStack />}
+        </NavigationContainer>
+      </Provider>
     </>
   );
 };

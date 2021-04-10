@@ -1,0 +1,3 @@
+const USER_REGISTER = `USER_REGISTER`;
+
+export {USER_REGISTER};
