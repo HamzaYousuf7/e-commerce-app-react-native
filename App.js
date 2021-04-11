@@ -22,8 +22,9 @@ import {AuthStack} from './src/navigation/Auth';
 import {MainStack} from './src/navigation/MainStack';
 
 // redux
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
 // local redux imp
 import userReducer from './src/store/reducer/userReducer';
@@ -34,7 +35,7 @@ const rootReducer = combineReducers({
 });
 
 // main store
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const App: () => React$Node = () => {
   return (

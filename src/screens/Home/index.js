@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -12,13 +12,23 @@ import {
 
 // third party
 import AppIntroSlider from 'react-native-app-intro-slider';
+import {useDispatch} from 'react-redux';
 
+// local redux imp
+import {userRegister} from '../../store/actionCreator/userActionCreator';
 
 //local import
 import {images, icons} from '../../utils/assets';
 import styles from './style';
 
 const Index = (props) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('[HOME INDEX CDM]');
+    dispatch(userRegister());
+  }, []);
+
   const slides = [
     {
       key: 1,
@@ -69,8 +79,6 @@ const Index = (props) => {
     {id: 1, img: images.popularThree, title: 'Flycam', txt: '1,000 Products'},
     {id: 2, img: images.popularFour, title: 'iPhone', txt: '2,000 Products '},
   ]);
-
-  
 
   const _renderItem = ({item}) => {
     return (
@@ -146,6 +154,7 @@ const Index = (props) => {
       </View>
     );
   };
+
   return (
     <>
       <StatusBar
